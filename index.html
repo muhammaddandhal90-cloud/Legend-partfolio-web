@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGEND M ALI | Cyber Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">MS</div>
+        <div class="nav-right">
+            <button class="admin-trigger" title="Admin Core Access">☀️</button>
+            <button class="menu-btn" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav-menu" id="navMenu">
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#skills" onclick="toggleMenu()">Skills</a>
+        <a href="#projects" onclick="toggleMenu()">Projects</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+        <a href="#" onclick="openAdminGate(); toggleMenu();" style="color: var(--neon-magenta);">Admin Control</a>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-title-sub">Hi, I'm</div>
+        <h1>LEGEND M <span>ALI</span></h1>
+        <div class="hero-tag">AI & ML Enthusiast</div>
+        <p class="hero-desc">Creating intelligent, scalable, and elegant digital solutions with cutting-edge technology.</p>
+        <a href="#projects"><button class="btn-prime">Explore My Work</button></a>
+        
+        <div class="profile-box">
+            <img src="https://kommodo.ai/i/IEBRGLo9iDFH2LhZfjMW" alt="Legend M Ali Portrait">
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="sec-header">About Me</h2>
+        <p class="about-text">
+            I am an expert developer focused on building smart applications, automating workflows, and securing systems with high-end terminal architecture and data pipelines.
+        </p>
+        <div class="stats-row">
+            <div class="stat-card">
+                <span>25+</span>
+                <p>Builds Completed</p>
+            </div>
+            <div class="stat-card" style="border-color: var(--neon-magenta);">
+                <span>100%</span>
+                <p>Uptime Focus</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="sec-header">Skills & Tech</h2>
+        <div class="skills-container">
+            <div class="skill-card"><span>🌐</span><div class="skill-info"><h3>HTML</h3><p>Semantic structure</p></div></div>
+            <div class="skill-card"><span>🎨</span><div class="skill-info"><h3>CSS</h3><p>Responsive & Animations</p></div></div>
+            <div class="skill-card"><span>⚡</span><div class="skill-info"><h3>JavaScript</h3><p>DOM Manipulation</p></div></div>
+            <div class="skill-card"><span>🔧</span><div class="skill-info"><h3>PHP & MySQL</h3><p>Server-side logic</p></div></div>
+            <div class="skill-card"><span>🐍</span><div class="skill-info"><h3>Python</h3><p>Data processing</p></div></div>
+            <div class="skill-card"><span>🤖</span><div class="skill-info"><h3>AI/ML</h3><p>Model training</p></div></div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="sec-header">Featured Projects</h2>
+        <div class="projects-wrapper" id="publicProjectsDisplay">
+            <div class="empty-state">No projects yet. Add some from the admin panel!</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="sec-header">Get In Touch</h2>
+        <a href="https://wa.me/923039628506" class="whatsapp-card-btn" target="_blank">
+            Contact via WhatsApp
+        </a>
+        <div class="wa-num">03039628506</div>
+        <div class="or-divider">or send a message below</div>
+        <form class="cyber-form" action="https://formspree.io/f/muhammaddandhal90@gmail.com" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="quote">"Exploring the future with AI & ML 🤖✨"</div>
+        <div>Made with ❤️ by LEGEND M ALI</div>
+    </footer>
+
+    <div class="admin-gate-overlay" id="adminGate">
+        <div class="login-card">
+            <h2>Admin Login</h2>
+            <input type="password" id="adminPasswordInput" placeholder="Enter Admin Password">
+            <button class="btn-prime" style="width: 100%; margin-bottom: 10px;" onclick="validateAdminLogin()">Verify Token</button>
+            <button class="btn-submit" style="width: 100%;" onclick="closeAdminGate()">Exit</button>
+        </div>
+    </div>
+
+    <div class="admin-dashboard-layout" id="adminDashboard">
+        <div class="admin-top-bar">
+            <div class="logo" style="font-size: 18px;">LEGEND CONTROL</div>
+            <button class="btn-del" style="background:#444;" onclick="logoutAdmin()">Secure Exit</button>
+        </div>
+
+        <div class="admin-tabs-nav">
+            <button class="tab-link active" onclick="switchAdminTab(0)">1. Status</button>
+            <button class="tab-link" onclick="switchAdminTab(1)">2. Add Item</button>
+            <button class="tab-link" onclick="switchAdminTab(2)">3. Manage</button>
+            <button class="tab-link" onclick="switchAdminTab(3)">4. Links</button>
+            <button class="tab-link" onclick="switchAdminTab(4)">5. Config</button>
+        </div>
+
+        <div class="admin-content-pane active" id="pane-0">
+            <h3>System Status</h3>
+            <div class="dashboard-metric-box">
+                <h4 style="color:var(--neon-cyan)">Total Projects Live</h4>
+                <p id="totalProjCount" style="font-size: 28px; font-weight: 700;">0</p>
+            </div>
+        </div>
+
+        <div class="admin-content-pane" id="pane-1">
+            <h3>Deploy New Project</h3>
+            <div class="admin-form-group">
+                <label>Project Title</label>
+                <input type="text" id="newProjTitle" placeholder="Project Name">
+            </div>
+            <div class="admin-form-group">
+                <label>Photo Source URL</label>
+                <input type="url" id="newProjImgUrl" placeholder="https://domain.com/photo.png">
+            </div>
+            <div class="admin-form-group">
+                <label>Project Description</label>
+                <textarea id="newProjDesc" rows="3" placeholder="Project details..."></textarea>
+            </div>
+            <button class="btn-prime" style="width: 100%;" onclick="addNewProjectData()">Publish Item</button>
+        </div>
+
+        <div class="admin-content-pane" id="pane-2">
+            <h3>Modify Database Storage</h3>
+            <div id="adminManageList"></div>
+        </div>
+
+        <div class="admin-content-pane" id="pane-3">
+            <h3>Active Target Paths</h3>
+            <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 10px; margin-bottom: 10px;">
+                <strong>WhatsApp Redirect:</strong> <span style="color:var(--neon-cyan)">+92 303 9628506</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 10px;">
+                <strong>Target Notification Mail:</strong> <span style="color:var(--neon-magenta)">muhammaddandhal90@gmail.com</span>
+            </div>
+        </div>
+
+        <div class="admin-content-pane" id="pane-4">
+            <h3>System Environment</h3>
+            <p style="color: var(--neon-green)">● Production Status Active</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
