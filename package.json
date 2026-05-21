@@ -1,0 +1,11 @@
+{
+  "name": "legend-m-ali-cyber-portfolio",
+  "version": "1.0.0",
+  "description": "Premium Cyberpunk Portfolio for Legend M Ali",
+  "scripts": {
+    "start": "echo 'Static server is live on production environment'"
+  },
+  "keywords": [],
+  "author": "Legend M Ali",
+  "license": "MIT"
+}
